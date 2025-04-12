@@ -1,13 +1,18 @@
 ### Module :
-![[attachments/Pasted Image 20250411121140_512.png]]
-![[attachments/Pasted Image 20250411121038_943.png]]
+
+
+
+![Pasted Image 20250411121140_512](attachments/Pasted%20Image%2020250411121140_512.png)
+
+
+![Pasted Image 20250411121038_943](attachments/Pasted%20Image%2020250411121038_943.png)
 
 
 ### OOP: 
 
-![[attachments/Pasted Image 20250411123128_046.png]]
+![Pasted Image 20250411123128_046](attachments/Pasted%20Image%2020250411123128_046.png)
 
 
 ### Inheritance : 
-![[attachments/Pasted Image 20250411123245_822.png]]
+![Pasted Image 20250411123245_822](attachments/Pasted%20Image%2020250411123245_822.png)
 
