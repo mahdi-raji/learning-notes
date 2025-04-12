@@ -1,32 +1,32 @@
 ### Project Setup
-![[Pasted Image 20250411154807_259.png]]
-- first of all we will need  a main.lua file that imports love framework with the first line
+![Project Setup Image](love2d/attachments/Pasted%20Image%2020250411154807_259.png)
+- first of all we will need a main.lua file that imports love framework with the first line
 - load : when we boot up the game
 - update : runs every frame 
 	- ( in 1 second it will called 60 times 60 fps ) dt (delta time) 
 	- ( move player will happen in here )
 - draw : draws every thing to screen
 
-![[Pasted Image 20250411163408_297.png]]
+![Another Image](love2d/attachments/Pasted%20Image%2020250411163408_297.png)
 1. at first load will set number to 2
 2. and then every frame will increase number to 5 
 3. and after update the draw will draw it in that frame
 
 
 ### Config File
-![[Pasted Image 20250411173207_637.png]]
+![Config Image](love2d/attachments/Pasted%20Image%2020250411173207_637.png)
 
--  the file that allows us to config application more to add permission or some features too
+- the file that allows us to config application more to add permission or some features too
 configs : 
 https://love2d.org/wiki/Config_Files
 
 ### Shapes
 
-![[Pasted Image 20250411182806_639.png]]
+![Shapes Image](love2d/attachments/Pasted%20Image%2020250411182806_639.png)
 
 ### Little Packman Game : 
 
-``` 
+```lua
 _G.love = require("love") -- Optional: usually not necessary, love is globally available
 function love.load()
     -- Set the background color (applied once on load)
@@ -87,4 +87,5 @@ function love.draw()
     love.graphics.arc("line", packman.x, packman.y, 60, 1, 5) -- Pac-Man shape
 end
 ```
-
+### Test Image : 
+![[attachments/Pasted image 20250412220752.png]]
