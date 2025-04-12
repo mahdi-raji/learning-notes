@@ -1,6 +1,8 @@
 ### Project Setup
 
-![](lua/love2d/attachments/Pasted%20image%2020250412223902.png)
+
+![](attachments/Pasted%20image%2020250412224115.png)
+
 
 - first of all we will need a main.lua file that imports love framework with the first line
 - load : when we boot up the game
@@ -16,7 +18,7 @@
 
 
 ### Config File
-![Config Image](lua/love2d/attachments/Pasted%20Image%2020250411173207_637.png)
+![Config Image](attachments/Pasted%20Image%2020250411173207_637.png)
 
 - the file that allows us to config application more to add permission or some features too
 configs : 
@@ -24,7 +26,7 @@ https://love2d.org/wiki/Config_Files
 
 ### Shapes
 
-![Shapes Image](lua/love2d/attachments/Pasted%20Image%2020250411182806_639.png)
+![Shapes Image](attachments/Pasted%20Image%2020250411182806_639.png)
 
 ### Little Packman Game : 
 
@@ -89,9 +91,3 @@ function love.draw()
     love.graphics.arc("line", packman.x, packman.y, 60, 1, 5) -- Pac-Man shape
 end
 ```
-### Test Image : 
-![[lua/love2d/attachments/Pasted image 20250412220752.png]]
-
-
-test image
-![](lua/love2d/attachments/Pasted%20image%2020250412223816.png)
