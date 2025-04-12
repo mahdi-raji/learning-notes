@@ -1,6 +1,6 @@
 # 🧠 Learning Notes
 
-This repository contains personal learning notes, diagrams, and summaries on various technical topics I explore during my development journey. The notes are primarily structured and maintained using [Obsidian](https://obsidian.md/), with visual models created using the [Excalidraw](https://excalidraw.com/) plugin.
+This repository contains personal learning notes, diagrams, and summaries on various technical topics I explore during my development journey. The notes are primarily structured and maintained using [Obsidian](https://obsidian.md/) in mark down format . 
 
 ## 📂 Structure
 
@@ -13,7 +13,6 @@ The vault is organized into the following types of content:
 ## ⚙️ Tools Used
 
 - **[Obsidian](https://obsidian.md/)**: A powerful knowledge base that works on top of a local folder of Markdown files.
-- **[Excalidraw Plugin](https://github.com/zsviczian/obsidian-excalidraw-plugin)**: Enables freehand drawing inside Obsidian for diagramming.
 - **Markdown**: For clean and portable text-based note-taking.
 - **GitHub**: To version control and share the notes publicly.
 
@@ -27,17 +26,6 @@ The vault is organized into the following types of content:
 
 1. Launch **Obsidian**.
 2. Select **“Open Folder as Vault”** and choose the cloned folder.
-
-### Install Required Plugins
-
-1. Go to **Settings → Community Plugins**.
-2. Search and install **Excalidraw**.
-3. Enable it, and you're ready to draw diagrams inside notes.
-
-### Customize Themes (Optional)
-
-- You can use any dark/light theme you prefer. ( shift+alt+d)
-- Make sure to set **Excalidraw** to follow **Obsidian’s theme** for better UX.
 
 ## 🧭 Goals
 
