@@ -1,5 +1,5 @@
 ### Project Setup
-![Project Setup Image](love2d/attachments/Pasted%20Image%2020250411154807_259.png)
+![Project Setup Image](lua/love2d/attachments/Pasted%20Image%2020250411154807_259.png)
 - first of all we will need a main.lua file that imports love framework with the first line
 - load : when we boot up the game
 - update : runs every frame 
@@ -7,14 +7,14 @@
 	- ( move player will happen in here )
 - draw : draws every thing to screen
 
-![Another Image](love2d/attachments/Pasted%20Image%2020250411163408_297.png)
+![Another Image](lua/love2d/attachments/Pasted%20Image%2020250411163408_297.png)
 1. at first load will set number to 2
 2. and then every frame will increase number to 5 
 3. and after update the draw will draw it in that frame
 
 
 ### Config File
-![Config Image](love2d/attachments/Pasted%20Image%2020250411173207_637.png)
+![Config Image](lua/love2d/attachments/Pasted%20Image%2020250411173207_637.png)
 
 - the file that allows us to config application more to add permission or some features too
 configs : 
@@ -22,7 +22,7 @@ https://love2d.org/wiki/Config_Files
 
 ### Shapes
 
-![Shapes Image](love2d/attachments/Pasted%20Image%2020250411182806_639.png)
+![Shapes Image](lua/love2d/attachments/Pasted%20Image%2020250411182806_639.png)
 
 ### Little Packman Game : 
 
@@ -88,4 +88,5 @@ function love.draw()
 end
 ```
 ### Test Image : 
-![[attachments/Pasted image 20250412220752.png]]
+![[lua/love2d/attachments/Pasted image 20250412220752.png]]
+![](lua/love2d/attachments/Pasted%20image%2020250412223207.png)
