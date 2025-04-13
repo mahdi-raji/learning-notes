@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lua/love2d/Basics Of Love.md",
+                "file": "lua/love2d/2- Save The Ball - Game Setup.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Basics Of Love"
+              "title": "2- Save The Ball - Game Setup"
             }
           }
         ]
@@ -160,6 +160,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -169,5 +170,9 @@
     }
   },
   "active": "56067f6c32603124",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "lua/love2d/1- Working With Sprites.md",
+    "lua/love2d/2- Save The Ball - Game Setup.md",
+    "lua/love2d/0 - Basics Of Love.md"
+  ]
 }
