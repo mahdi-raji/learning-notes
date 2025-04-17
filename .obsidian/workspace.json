@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lua/love2d/5- Adding A Point System.md",
+                "file": "lua/love2d/Save The Ball/5- Game over screen.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "5- Adding A Point System"
+              "title": "5- Game over screen"
             }
           }
         ]
@@ -171,12 +171,16 @@
   },
   "active": "844a97956a9d5888",
   "lastOpenFiles": [
-    "lua/love2d/4- The Menu Screen.md",
-    "lua/love2d/5- Adding A Point System.md",
-    "lua/love2d/1- Working With Sprites.md",
+    "lua/love2d/0 - Basics Of Love.md",
+    "lua/love2d/Save The Ball/5- Game over screen.md",
+    "lua/love2d/Working With Sprites.md",
+    "lua/love2d/Save The Ball/4- Adding A Point System.md",
+    "lua/love2d/Save The Ball/1- Save The Ball - Game Setup.md",
+    "lua/love2d/Save The Ball/2- Save The Ball- Enemy.md",
+    "lua/love2d/Save The Ball/3- The Menu Screen.md",
+    "lua/love2d/Save The Ball",
+    "lua/love2d/attachments/Untitled",
     "University/Operating Systems/Introduction/1- What is an operating system.md",
-    "lua/love2d/3- Save The Ball- Enemy.md",
-    "lua/love2d/2- Save The Ball - Game Setup.md",
     "University/Operating Systems/Introduction",
     "Untitled.md",
     "University/Operating Systems/attachments/Pasted image 20250417191308.png",
@@ -188,7 +192,6 @@
     "Pasted image 20250417191045.png",
     "Pasted image 20250417191035.png",
     "University/Operating Systems",
-    "University",
-    "lua/love2d/0 - Basics Of Love.md"
+    "University"
   ]
 }

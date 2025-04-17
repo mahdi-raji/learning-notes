@@ -3,10 +3,12 @@ The distance between two points (x1, y1) and (x2, y2) is calculated using:
  ``` lua
 	 math.sqrt((self.x - player_x) ^ 2 +(self.y - player_y) ^ 2) <= cursor_radius * 2)
 	```
+
 )
 - If this condition is true, it means the enemy and the player have collided (touched).
 
 - Inside the game update loop, when the game state is "running", we:
+
 ```lua
 if game.state["running"] then
 
