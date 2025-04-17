@@ -1,3 +1,9 @@
 {
-  "spellcheck": false
+  "spellcheck": false,
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "",
+  "attachmentFolderPath": "./attachments",
+  "promptDelete": false
 }

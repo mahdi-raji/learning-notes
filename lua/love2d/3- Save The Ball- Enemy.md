@@ -1,4 +1,4 @@
-- Its better to create another module for enemy 
+ - Its better to create another module for enemy 
 - The point of this is more like understanding oop in lua
 Enemy Module :
 ```lua
@@ -27,7 +27,7 @@ function Enemy()
     local _x, _y  
 
     local _radius = 20
-
+ 
   
 
     -- Spawn enemy just outside one of the screen edges
