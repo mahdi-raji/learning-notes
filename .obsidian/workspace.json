@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "a79989a1f25515bc",
+        "id": "fc4cb2167720b9cd",
         "type": "tabs",
         "children": [
           {
-            "id": "90b89d8f1bae19cd",
+            "id": "f77d4efd2e3dc8ce",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#t",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -169,13 +170,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "90b89d8f1bae19cd",
+  "active": "f77d4efd2e3dc8ce",
   "lastOpenFiles": [
+    "README.md",
+    "lua/lua/Presentation.md",
     "lua/lua/attachments/Pasted image 20250502141953.png",
     "lua/lua/attachments/Pasted image 20250502141942.png",
     "lua/lua/attachments/Pasted image 20250502141845.png",
     "lua/love2d/Save The Ball/1- Save The Ball - Game Setup.md",
-    "lua/lua/Presentation.md",
     "lua/lua/attachments/Pasted image 20250502132842.png",
     "lua/lua/attachments/Pasted image 20250502132839.png",
     "lua/lua/attachments/Pasted image 20250502132838.png",
@@ -203,8 +205,6 @@
     "lua/love2d/attachments/Untitled",
     "University/Operating Systems/Introduction",
     "University/Operating Systems/attachments/Pasted image 20250417191308.png",
-    "University/Operating Systems/Introduction/attachments/Pasted image 20250417191342.png",
-    "README.md",
     "University/Operating Systems/Introduction/attachments",
     "University/Operating Systems",
     "University"

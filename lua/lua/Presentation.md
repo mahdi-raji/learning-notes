@@ -46,6 +46,81 @@ print("You currently have " .. numQuests .. " quests active.")
 - منظور از Scripting هدف استفاده از زبان می‌باشد ولی منظور از Interpreted به روش اجرا اشاره می‌شود. ممکن است زبان های اسکریپتی امروزه نیز با Jit Compiler ها اجرا شوند . ( Just In Time Compile ) این روش بخشی از کد را در زمان اجرا به کد ماشین تبدیل می‌کند تا سرعت اجرا افزایش یابد. برای مثال، موتورهای جاوااسکریپت مثل V8 در مرورگر کروم از این روش استفاده می‌کنند 
 
 **Table**
+- در واقع تنها ساختمان داده موجود در زبان lua .
+- در واقع و در اصل یک Associative array است که علاوه بر عدد به عنوان اندیس ، از string و یا هر مقدار دیگری نیز پشتیبانی می‌کند.
+> a = {} -- create a table and assign its reference
+> k = "x"
+> a[k] = 10 -- new entry, with key="x" and value=10
+> a[20] = "great" -- new entry, with key=20 and value="great"
+> a["x"]
+ --> 10
+> k = 20
+> a[k]
+ --> "great"
+> a["x"] = a["x"] + 1 -- increments entry "x"
+> a["x"]
+ --> 11
+> a.x = 10 -- same as a["x"] = 10
+> a.x -- same as a["x"]
+--> 10 
+> a.y  -- same as a["y"]
+--> nil
+
+
+***Table Traversal***
+1- Pairs :We can traverse all key–value pairs in a table with the pairs iterator without any specific order :
+
+```lua
+t = {10, print, x = 12, k = "hi"}
+for k, v in pairs(t) do
+print(k, v)
+end
+```
+
+>
+--> 1 10
+--> 2 function: 0x420610
+--> k hi
+--> x 12
+
+ipairs : For lists, we can use the ipairs iterator:
+```lua
+t = {10, print, 12, "hi"}
+for k, v in ipairs(t) do
+print(k, v)
+end
+```
+
+>
+--> 1 10
+--> 2 function: 0x420610
+--> 3 12
+--> 4 hi
+
+In this case, Lua ensures the order.
+
+```lua
+t = {10, print, 12, "hi"}
+for k = 1, #t do
+print(k, t[k])
+end
+```
+>
+--> 1 10
+--> 2 function: 0x420610
+--> 3 12
+--> 4 hi
+
+The Problem With # ( Length Operator):
+
+```lua
+a = {}
+a[1] = 1
+a[10000] = 1
+```
+
+
+
 ![](attachments/Pasted%20image%2020250428072615.png)
 - محاسبه‌ی آدرس رجیستر جدول: با RA(i) آدرس رجیستر مقصد (مثل R0) تعیین می‌شه.
 - خواندن اندازه‌ی هَش: آرگومان B (log2 اندازه‌ی هَش + ۱) خوانده و به 2 به توان b-1  تبدیل می‌شه.
@@ -54,8 +129,10 @@ print("You currently have " .. numQuests .. " quests active.")
 - تأیید آرگومان اضافی: با lua_assert سازگاری بیت k و آرگومان Ax چک می‌شه. در صورت وجود آرگومان اضافی، اندازه‌ی آرایه آپدیت و pc افزایش می‌یابد.
 
 
+
 منابع :
 - [سایت رسمی lua](https://www.lua.org/)
 - [The Evolution of Lua ](https://www.lua.org/doc/hopl.pdf#:~:text=interface.%20Around%20mid,it%20has%20not%20changed%20since)
 - [Source Code of Lua](https://github.com/lua/lua)
+- [Programming in lua book](https://raw.githubusercontent.com/Alessana/ebooks/refs/heads/master/Programming%20in%20Lua%204th%20Edition.pdf)
 
