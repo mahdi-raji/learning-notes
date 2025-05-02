@@ -119,15 +119,283 @@ a[1] = 1
 a[10000] = 1
 ```
 
+- چطوریه که تیبل میتونه تمام این تایپ ها رو هندل کنه و دقیقا ساختارش چطوریه؟ 
+-  بخش 1: جدول‌ها در Lua - تنها ساختمان داده
 
 
-![](attachments/Pasted%20image%2020250428072615.png)
-- محاسبه‌ی آدرس رجیستر جدول: با RA(i) آدرس رجیستر مقصد (مثل R0) تعیین می‌شه.
-- خواندن اندازه‌ی هَش: آرگومان B (log2 اندازه‌ی هَش + ۱) خوانده و به 2 به توان b-1  تبدیل می‌شه.
-- خواندن اندازه‌ی آرایه: آرگومان C به‌عنوان اندازه‌ی اولیه‌ی آرایه خوانده می‌شه.
-- تبدیل هَش سایز: اگه B > 0، اندازه‌ی واقعی هَش با شیفت بیت محاسبه می‌شه.
-- تأیید آرگومان اضافی: با lua_assert سازگاری بیت k و آرگومان Ax چک می‌شه. در صورت وجود آرگومان اضافی، اندازه‌ی آرایه آپدیت و pc افزایش می‌یابد.
+ساختار جدول در سورس کد Lua
+داخل فایل `lobject.h`:
+```c
+struct Table {
+  TValue *array;       /* بخش آرایه برای کلیدهای عددی */
+  unsigned int alimit; /* اندازه آرایه */
+  Node *node;          /* بخش هش برای کلیدهای غیرعددی */
+  int lsizenode;      /* لگاریتم اندازه آرایه هش */
+};
 
+typedef struct Node {
+  TValue key;         /* کلید */
+  TValue val;         /* مقدار */
+  int next;           /* برای زنجیره‌سازی برخورد */
+} Node;
+```
+
+ ساختار `TValue` :
+TValue هر نوع داده‌ای رو ذخیره می‌کنه (lobject.h):
+
+```c
+typedef struct TValue {
+  union {
+    lua_Number n;    /* عدد */
+    int b;           /* بولین */
+    GCObject *gc;    /* رشته، جدول، تابع و غیره */
+  } value_;
+	  int tt_;           /* نوع داده (مثل LUA_TNUMBER, LUA_TSTRING) */
+} TValue;
+
+```
+چرا برای عدد ها هم از hash استفاده نمیشود ؟
+1- کاربرد بالای کلید های عددی متوالی
+2- هزینه زیاد Hash چه برای دسترسی چه برای ذخیره سازی
+
+مثال :
+
+```lua
+local t = {10, 20, ["name"] = "Lua"}
+```
+
+```c
+Table *t = luaH_new(L); 
+
+t->array[0].value_.n = 10; 
+t->array[0].tt_ = LUA_TNUMBER; /* t[1] = 10 */ 
+
+t->array[1].value_.n = 20; 
+t->array[1].tt_ = LUA_TNUMBER; /* t[2] = 20 */ 
+
+t->node[0].key.tt_ = LUA_TSTRING;
+t->node[0].key.value_.gc = "name" ; 
+t->node[0].val.tt_ = LUA_TSTRING;
+t->node[0].val.value_.gc = "Lua" ;
+```
+
+تعریف تابع‌های هش: توی ltable.c برای انواع کلیدها (مثل hashint, l_hashfloat, hashstr) تعریف شدن.
+بررسی چگونگی مدیریت Collision :
+```C
+typedef union Node {
+  struct NodeKey {
+    TValuefields;  /* fields for value */
+    lu_byte key_tt;  /* key type */
+    int next;  /* for chaining */
+    Value key_val;  /* key value */
+  } u;
+  TValue i_val;  /* direct access to node's value as a proper 'TValue' */
+} Node;
+```
+
+```c
+static void luaH_newkey (lua_State *L, Table *t, const TValue *key, TValue *value) {
+  Node *mp;
+  TValue aux;
+  if (ttisnil(key)) luaG_runerror(L, "table index is nil");
+  mp = mainpositionTV(t, key);  /* جایگاه اصلی کلید */
+  if (!isempty(gval(mp)) || isdummy(t)) {  /* برخورد داریم؟ */
+    Node *f = getfreepos(t);  /* جای خالی پیدا کن */
+    if (f == NULL) {
+      rehash(L, t, key);  /* جدول رو بزرگ کن */
+      luaH_set(L, t, key, value);
+      return;
+    }
+    Node *othern = mainpositionfromnode(t, mp);
+    if (othern != mp) {  /* گره موجود توی جایگاه اصلیش نیست */
+      while (othern + gnext(othern) != mp) othern += gnext(othern);
+      gnext(othern) = cast_int(f - othern);
+      *f = *mp;
+      if (gnext(mp) != 0) gnext(f) += cast_int(mp - f);
+      gnext(mp) = 0;
+      setempty(gval(mp));
+    } else {  /* گره توی جایگاه اصلیشه */
+      if (gnext(mp) != 0) gnext(f) = cast_int((mp + gnext(mp)) - f);
+      gnext(mp) = cast_int(f - mp);
+      mp = f;
+    }
+  }
+  setnodekey(L, mp, key);  /* کلید رو تنظیم کن */
+  setobj2t(L, gval(mp), value);  /* مقدار رو تنظیم کن */
+}
+```
+مراحل مدیریت برخورد :
+محاسبه جایگاه اصلی:
+با تابع هش (مثل hashstr یا hashint)، جایگاه اصلی کلید (mp) پیدا می‌شه.
+چک کردن برخورد:
+اگه جایگاه اصلی (mp) خالی نباشه (!isempty(gval(mp)))، یعنی برخورد داریم.
+پیدا کردن جای خالی:
+تابع getfreepos(t) یه نود خالی (f) توی جدول پیدا می‌کنه.
+اگه جای خالی نباشه، rehash جدول رو بزرگ می‌کنه و دوباره تلاش می‌کنه.
+رفع برخورد:
+اگه گره موجود توی جایگاه اصلیش نباشه: Lua گره موجود رو به جای خالی (f) منتقل می‌کنه و کلید جدید رو توی جایگاه اصلی (mp) می‌ذاره.
+اگه گره توی جایگاه اصلیش باشه: کلید جدید رو توی جای خالی (f) می‌ذاره و با فیلد next به زنجیره گره‌ها وصل می‌کنه.
+تنظیم کلید و مقدار:
+کلید و مقدار توی نود مناسب (چه mp چه f) ذخیره می‌شن.
+
+**SET TABLE**
+```lua
+local l = {}
+l[1] = 2
+l["test"] = 3
+```
+
+>ByteCode 
+2 [3] SETTABLE 0 -1 -2 ; 1 2
+3 [4] SETTABLE 0 -3 -4 ; "test" 3
+
+***Constant Table***
+
+
+جدول ثابت‌ها (Proto.k) مقادیر ثابت (مثل عدد، رشته) رو ذخیره می‌کنه تا از تکرار و مصرف حافظه اضافی جلوگیری کنه.
+```c
+typedef struct Proto {
+  TValue *k;  /* جدول ثابت‌ها */
+  int sizek;  /* تعداد ثابت‌ها */
+  /* سایر فیلدها */
+} Proto;
+```
+
+```lua
+local l = {}
+l[1] = 2
+l["test"] = 3
+```
+>Example Of Values in Constant Table
+k[1] = 1 (عدد)
+k[2] = 2 (عدد)
+k[3] = "test" (رشته)
+k[4] = 3 (عدد)
+
+نکته : فقط برای ارتباط بین مفسر زبان و بایت کد Constant Table ها وجود دارند و مقادیر ذخیره شده در Table و یا دیگر مقادیر مقادیر اصلی از constant table واکشی شده و ذخیره می‌شوند. 
+
+***SETTABLE***
+
+```C
+vmcase(OP_SETTABLE) {
+  StkId ra = RA(i);  /* جدول (l) */
+  const TValue *slot;
+  TValue *rb = vRB(i);  /* کلید (1 یا "test") */
+  TValue *rc = RKC(i);  /* مقدار (2 یا 3) */
+  lua_Unsigned n;
+  if (ttisinteger(rb)  /* کلید عدد صحیحه؟ */
+      ? (cast_void(n = ivalue(rb)), luaV_fastgeti(L, s2v(ra), n, slot))
+      : luaV_fastget(L, s2v(ra), rb, slot, luaH_get)) {
+    luaV_finishfastset(L, s2v(ra), slot, rc);
+  }
+  else
+    Protect(luaV_finishset(L, s2v(ra), rb, rc, slot));
+  vmbreak;
+}
+```
+Fast Path (مسیر سریع):
+اگه:
+
+جدول ساده باشه (نه متا‌تابع پیچیده داشته باشه)
+
+کلید هم معمولی باشه (مثلاً عدد یا رشته)
+
+اون وقت Lua می‌تونه خیلی سریع مقدار رو پیدا کنه یا بذاره، بدون اینکه بره سراغ متا‌تابع‌ها یا جست‌وجوی پیچیده.
+
+تابع‌هایی مثل luaV_fastgeti یا luaV_fastget دقیقاً برای این مسیر سریع طراحی شدن.
+ Slow Path (مسیر کند یا امن):
+اگه:
+
+
+جدول یه متامتابع داشته باشه (مثلاً _index یا _newindex)
+
+نوع کلید یا جدول غیرمنتظره باشه
+
+اون موقع باید بره مسیر کامل و کند (مثلاً luaH_get, luaV_finishset) تا همه چیز درست و طبق استاندارد بررسی بشه.
+
+
+
+
+**Love2D**
+```lua
+function love.run()
+
+    if love.load then love.load(love.parsedGameArguments, love.rawGameArguments) end
+
+  
+
+    -- We don't want the first frame's dt to include time taken by love.load.
+
+    if love.timer then love.timer.step() end
+
+  
+
+    -- Main loop time.
+
+    return function()
+
+        -- Process events.
+
+        if love.event then
+
+            love.event.pump()
+
+            for name, a,b,c,d,e,f,g,h in love.event.poll() do
+
+                if name == "quit" then
+
+                    if not love.quit or not love.quit() then
+
+                        return a or 0, b
+
+                    end
+
+                end
+
+                love.handlers[name](a,b,c,d,e,f,g,h)
+
+            end
+
+        end
+
+  
+
+        -- Update dt, as we'll be passing it to update
+
+        local dt = love.timer and love.timer.step() or 0
+
+  
+
+        -- Call update and draw
+
+        if love.update then love.update(dt) end -- will pass 0 if love.timer is disabled
+
+  
+
+        if love.graphics and love.graphics.isActive() then
+
+            love.graphics.origin()
+
+            love.graphics.clear(love.graphics.getBackgroundColor())
+
+  
+
+            if love.draw then love.draw() end
+
+  
+
+            love.graphics.present()
+
+        end
+
+  
+
+        if love.timer then love.timer.sleep(0.001) end
+
+    end
+
+end
+```
 
 
 منابع :
@@ -135,4 +403,6 @@ a[10000] = 1
 - [The Evolution of Lua ](https://www.lua.org/doc/hopl.pdf#:~:text=interface.%20Around%20mid,it%20has%20not%20changed%20since)
 - [Source Code of Lua](https://github.com/lua/lua)
 - [Programming in lua book](https://raw.githubusercontent.com/Alessana/ebooks/refs/heads/master/Programming%20in%20Lua%204th%20Edition.pdf)
+- Grok And Chat GPT !
+- [Steve's Teacher Youtube ](https://www.youtube.com/c/Stevesteacher)
 
