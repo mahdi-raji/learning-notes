@@ -114,6 +114,7 @@ end
 The Problem With # ( Length Operator):
 
 ```lua
+
 a = {}
 a[1] = 1
 a[10000] = 1
@@ -179,64 +180,6 @@ t->node[0].val.tt_ = LUA_TSTRING;
 t->node[0].val.value_.gc = "Lua" ;
 ```
 
-تعریف تابع‌های هش: توی ltable.c برای انواع کلیدها (مثل hashint, l_hashfloat, hashstr) تعریف شدن.
-بررسی چگونگی مدیریت Collision :
-```C
-typedef union Node {
-  struct NodeKey {
-    TValuefields;  /* fields for value */
-    lu_byte key_tt;  /* key type */
-    int next;  /* for chaining */
-    Value key_val;  /* key value */
-  } u;
-  TValue i_val;  /* direct access to node's value as a proper 'TValue' */
-} Node;
-```
-
-```c
-static void luaH_newkey (lua_State *L, Table *t, const TValue *key, TValue *value) {
-  Node *mp;
-  TValue aux;
-  if (ttisnil(key)) luaG_runerror(L, "table index is nil");
-  mp = mainpositionTV(t, key);  /* جایگاه اصلی کلید */
-  if (!isempty(gval(mp)) || isdummy(t)) {  /* برخورد داریم؟ */
-    Node *f = getfreepos(t);  /* جای خالی پیدا کن */
-    if (f == NULL) {
-      rehash(L, t, key);  /* جدول رو بزرگ کن */
-      luaH_set(L, t, key, value);
-      return;
-    }
-    Node *othern = mainpositionfromnode(t, mp);
-    if (othern != mp) {  /* گره موجود توی جایگاه اصلیش نیست */
-      while (othern + gnext(othern) != mp) othern += gnext(othern);
-      gnext(othern) = cast_int(f - othern);
-      *f = *mp;
-      if (gnext(mp) != 0) gnext(f) += cast_int(mp - f);
-      gnext(mp) = 0;
-      setempty(gval(mp));
-    } else {  /* گره توی جایگاه اصلیشه */
-      if (gnext(mp) != 0) gnext(f) = cast_int((mp + gnext(mp)) - f);
-      gnext(mp) = cast_int(f - mp);
-      mp = f;
-    }
-  }
-  setnodekey(L, mp, key);  /* کلید رو تنظیم کن */
-  setobj2t(L, gval(mp), value);  /* مقدار رو تنظیم کن */
-}
-```
-مراحل مدیریت برخورد :
-محاسبه جایگاه اصلی:
-با تابع هش (مثل hashstr یا hashint)، جایگاه اصلی کلید (mp) پیدا می‌شه.
-چک کردن برخورد:
-اگه جایگاه اصلی (mp) خالی نباشه (!isempty(gval(mp)))، یعنی برخورد داریم.
-پیدا کردن جای خالی:
-تابع getfreepos(t) یه نود خالی (f) توی جدول پیدا می‌کنه.
-اگه جای خالی نباشه، rehash جدول رو بزرگ می‌کنه و دوباره تلاش می‌کنه.
-رفع برخورد:
-اگه گره موجود توی جایگاه اصلیش نباشه: Lua گره موجود رو به جای خالی (f) منتقل می‌کنه و کلید جدید رو توی جایگاه اصلی (mp) می‌ذاره.
-اگه گره توی جایگاه اصلیش باشه: کلید جدید رو توی جای خالی (f) می‌ذاره و با فیلد next به زنجیره گره‌ها وصل می‌کنه.
-تنظیم کلید و مقدار:
-کلید و مقدار توی نود مناسب (چه mp چه f) ذخیره می‌شن.
 
 **SET TABLE**
 ```lua
@@ -316,7 +259,29 @@ Fast Path (مسیر سریع):
 
 
 
+
 **Love2D**
+
+```lua
+
+function love.load()
+
+end
+
+  
+
+function love.update(dt)
+
+end
+
+  
+
+function love.draw()
+
+end
+```
+
+Love. run
 ```lua
 function love.run()
 

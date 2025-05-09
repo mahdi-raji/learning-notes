@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSharp/Cshap In Depth/Part 1 - Csharp In Context/1 - Survival of the sharpest.md",
+                "file": "lua/lua/Presentation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1 - Survival of the sharpest"
+              "title": "Presentation"
             }
           }
         ]
@@ -166,7 +166,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -179,13 +180,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d7cf9cf5b208bbf2",
+  "active": "134cb0b5a05732e5",
   "lastOpenFiles": [
+    "lua/lua/basics of LUA.md",
+    "lua/lua/Presentation.md",
+    "CSharp/Cshap In Depth/Part 2 - Csharp 2 - 5/Untitled.md",
+    "University/Operating Systems/Introduction/1- What is an operating system.md",
+    "CSharp/Cshap In Depth/Part 1 - Csharp In Context/1 - Survival of the sharpest.md",
+    "added",
     "CSharp/Cshap In Depth/Part 2 - Csharp 2 - 5",
     "CSharp/Cshap In Depth/Untitled.md",
-    "CSharp/Cshap In Depth/Part 1 - Csharp In Context/1 - Survival of the sharpest.md",
     "CSharp/Cshap In Depth/Part 1 - Csharp In Context",
-    "lua/lua/Presentation.md",
     "CSharp/Cshap In Depth.md",
     "CSharp/Cshap In Depth",
     "Untitled.md",
@@ -200,7 +205,6 @@
     "lua/lua/attachments/Pasted image 20250502132838.png",
     "lua/love2d/0 - Basics Of Love.md",
     "lua/love2d/Working With Sprites.md",
-    "University/Operating Systems/Introduction/1- What is an operating system.md",
     "Db/PostgreSql/PostgreSQL CRASH COURSE - Learn PostgreSQL in 2024.md",
     "GFG/What is hashing.md",
     "Db/PostgreSql",
@@ -218,8 +222,6 @@
     "lua/love2d/Save The Ball/2- Save The Ball- Enemy.md",
     "lua/love2d/Save The Ball/3- The Menu Screen.md",
     "lua/love2d/Save The Ball",
-    "lua/love2d/attachments/Untitled",
-    "University/Operating Systems/Introduction",
     "University/Operating Systems/attachments/Pasted image 20250417191308.png"
   ]
 }
