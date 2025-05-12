@@ -40,5 +40,6 @@
 	// names.Add(42); // Error: Only strings allowed
 	// No IntCollection exists for integers!
 	```
+	
 
 				 
