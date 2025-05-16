@@ -11,7 +11,7 @@
 			 - Type Safe ArrayList
 			 - StringCollection	
 	- Arrays and Specialized collections are statically typed .
-	- Reference type arrays are only mostly safe when storing values because ofarray covariance. I view array covariance as an early design mistake that’s beyond the scope of this book but example :
+	- Reference type arrays are only mostly safe when storing values because of array covariance. I view array covariance as an early design mistake that’s beyond the scope of this book but example :
 	```csharp
 	string[] strings = new string[] { "hello", "world" }; 
 	object[] objects = strings; 

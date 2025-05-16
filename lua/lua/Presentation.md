@@ -25,11 +25,6 @@ Roberto Ierusalimschy
 
 
 
-
- **Scripting Language**
-![](attachments/Pasted%20image%2020250427065148.png)
-
-
 برای مثال
 ما از طریق زبان اسکریپت های زبان lua و ارتباط گرفتن با api  wow میتونیم یه سری اسکریپت بنویسیم که مثلا ببینیم چندتا quest فعال داریم و نتیجه رو داخل chat بازی برای خودمون ببینیم :
 ```lua
@@ -39,11 +34,6 @@ print("You currently have " .. numQuests .. " quests active.")
 
 ```
 
-
-
-**Difference Between Interpreted and Scripting Languages**
-
-- منظور از Scripting هدف استفاده از زبان می‌باشد ولی منظور از Interpreted به روش اجرا اشاره می‌شود. ممکن است زبان های اسکریپتی امروزه نیز با Jit Compiler ها اجرا شوند . ( Just In Time Compile ) این روش بخشی از کد را در زمان اجرا به کد ماشین تبدیل می‌کند تا سرعت اجرا افزایش یابد. برای مثال، موتورهای جاوااسکریپت مثل V8 در مرورگر کروم از این روش استفاده می‌کنند 
 
 **Table**
 - در واقع تنها ساختمان داده موجود در زبان lua .
@@ -67,62 +57,8 @@ print("You currently have " .. numQuests .. " quests active.")
 --> nil
 
 
-***Table Traversal***
-1- Pairs :We can traverse all key–value pairs in a table with the pairs iterator without any specific order :
-
-```lua
-t = {10, print, x = 12, k = "hi"}
-for k, v in pairs(t) do
-print(k, v)
-end
-```
-
->
---> 1 10
---> 2 function: 0x420610
---> k hi
---> x 12
-
-ipairs : For lists, we can use the ipairs iterator:
-```lua
-t = {10, print, 12, "hi"}
-for k, v in ipairs(t) do
-print(k, v)
-end
-```
-
->
---> 1 10
---> 2 function: 0x420610
---> 3 12
---> 4 hi
-
-In this case, Lua ensures the order.
-
-```lua
-t = {10, print, 12, "hi"}
-for k = 1, #t do
-print(k, t[k])
-end
-```
->
---> 1 10
---> 2 function: 0x420610
---> 3 12
---> 4 hi
-
-The Problem With # ( Length Operator):
-
-```lua
-
-a = {}
-a[1] = 1
-a[10000] = 1
-```
-
 - چطوریه که تیبل میتونه تمام این تایپ ها رو هندل کنه و دقیقا ساختارش چطوریه؟ 
 -  بخش 1: جدول‌ها در Lua - تنها ساختمان داده
-
 
 ساختار جدول در سورس کد Lua
 داخل فایل `lobject.h`:
@@ -141,8 +77,12 @@ typedef struct Node {
 } Node;
 ```
 
+چرا برای کلید های عددی متوالی هم از hash استفاده نمیشود؟
+1- کاربرد بالای کلید های عددی متوالی
+2- هزینه زیاد Hash چه برای دسترسی چه برای ذخیره سازی
+
  ساختار `TValue` :
-TValue هر نوع داده‌ای رو ذخیره می‌کنه (lobject.h):
+TValue هر نوع داده‌ای رو ذخیره می‌کنه:
 
 ```c
 typedef struct TValue {
@@ -154,10 +94,69 @@ typedef struct TValue {
 	  int tt_;           /* نوع داده (مثل LUA_TNUMBER, LUA_TSTRING) */
 } TValue;
 
+
 ```
-چرا برای عدد ها هم از hash استفاده نمیشود ؟
-1- کاربرد بالای کلید های عددی متوالی
-2- هزینه زیاد Hash چه برای دسترسی چه برای ذخیره سازی
+
+
+***Hash***
+هش فرآیندی است که یک داده ورودی (مثل رشته، عدد یا هر شیء دیگر) را به یک مقدار عددی ثابت، به نام هش‌کد، تبدیل می‌کند.
+
+هش‌تیبل یک ساختار داده است که از تابع هش برای ذخیره و بازیابی داده‌ها استفاده می‌کند. در این ساختار:
+
+- داده‌ها به‌صورت  key value ذخیره می‌شوند.
+- کلید با تابع هش به یک index (هش‌کد) تبدیل می‌شود که مشخص می‌کند مقدار مرتبط با آن کلید کجا ذخیره شود(با استفاده از یک Hash Function)
+- اگر برخورد (collision) رخ دهد (یعنی دو کلید به یک اندیس اشاره کنند)، هش‌تیبل از روش‌هایی مثل Chaining یا Open Addressing برای مدیریت این مشکل استفاده می‌کند. در داخل lua همانطور که مشخص است از روش Chaining برای حل برخورد استفاده می‌شود.
+
+مدیریت Collison در lua :
+```lua
+/*
+** Hash uses a mix of chained scatter table with Brent's variation.
+** A main invariant of these tables is that, if an element is not
+** in its main position (i.e. the 'original' position that its hash gives
+** to it), then the colliding element is in its own main position.
+*/
+
+```
+
+```lua
+t = {}
+t["apple"] = 1
+t["banana"] = 2
+t["cherry"] = 3
+```
+
+- "apple" → اندیس 1
+- "banana" → اندیس 1 (برخورد با "apple")
+- "cherry" → اندیس 2
+
+_apple_
+```text
+node[0]: empty
+node[1]: {key: "apple", value: 1, next: NULL}
+node[2]: empty
+node[3]: empty
+```
+( دلیل ایجاد چهار node ، ذخیره سازی لگاریتم بر پایه 2 اندازه هش است؛ در واقع اندازه هش همیشه مقداری به توان 2 می‌باشد که باعث ایجاد load factor (نسبت تعداد کلید ها به تعداد اندیس های ساخته شده ) مناسب می‎‌‎شود)
+
+فرض میکنیم که کلید apple در اندیس 1 داخل hashtable ذخیره شود.
+_banana_
+حالا فرض میکنیم که banana هم در اندیس 1 داخل hashtable ذخیره شود؛ در این حالت در روش chaining عادی باید لیست پیوندی جداگانه ای درست شود ولی در lua به دلیل استفاده از Chained Scatter Table، داخل خود node ذخیره می‌شود و با next داخل نود دیگر(apple) در دسترس باشد. 
+```text
+node[0]: empty
+node[1]: {key: "apple", value: 1, next: &node[2]}
+node[2]: {key: "banana", value: 2, next: NULL}
+node[3]: empty
+```
+_cherry_
+فرض میکنیم cherry باید در اندیس 2 ذخیره شود. در این حالت بر اساس Brent’s Variation ما باید banana را به node دیگری منتقل کنیم و next نود اول را آپدیت کنیم تا cherry در واقع در جایگاه اصلی خود باشد (هدف  Brent’s Variation) - در حالتی که از این بهینه سازی استفاده نشود، cherry به node با اندیس 3 ام اضافه شده و با next node دوم به آن متصل می‌شود.
+پس در نهایت :
+```text
+node[0]: empty
+node[1]: {key: "apple", value: 1, next: &node[3]}
+node[2]: {key: "cherry", value: 3, next: NULL}
+node[3]: {key: "banana", value: 2, next: NULL}
+```
+
 
 مثال :
 
@@ -179,82 +178,6 @@ t->node[0].key.value_.gc = "name" ;
 t->node[0].val.tt_ = LUA_TSTRING;
 t->node[0].val.value_.gc = "Lua" ;
 ```
-
-
-**SET TABLE**
-```lua
-local l = {}
-l[1] = 2
-l["test"] = 3
-```
-
->ByteCode 
-2 [3] SETTABLE 0 -1 -2 ; 1 2
-3 [4] SETTABLE 0 -3 -4 ; "test" 3
-
-***Constant Table***
-
-
-جدول ثابت‌ها (Proto.k) مقادیر ثابت (مثل عدد، رشته) رو ذخیره می‌کنه تا از تکرار و مصرف حافظه اضافی جلوگیری کنه.
-```c
-typedef struct Proto {
-  TValue *k;  /* جدول ثابت‌ها */
-  int sizek;  /* تعداد ثابت‌ها */
-  /* سایر فیلدها */
-} Proto;
-```
-
-```lua
-local l = {}
-l[1] = 2
-l["test"] = 3
-```
->Example Of Values in Constant Table
-k[1] = 1 (عدد)
-k[2] = 2 (عدد)
-k[3] = "test" (رشته)
-k[4] = 3 (عدد)
-
-نکته : فقط برای ارتباط بین مفسر زبان و بایت کد Constant Table ها وجود دارند و مقادیر ذخیره شده در Table و یا دیگر مقادیر مقادیر اصلی از constant table واکشی شده و ذخیره می‌شوند. 
-
-***SETTABLE***
-
-```C
-vmcase(OP_SETTABLE) {
-  StkId ra = RA(i);  /* جدول (l) */
-  const TValue *slot;
-  TValue *rb = vRB(i);  /* کلید (1 یا "test") */
-  TValue *rc = RKC(i);  /* مقدار (2 یا 3) */
-  lua_Unsigned n;
-  if (ttisinteger(rb)  /* کلید عدد صحیحه؟ */
-      ? (cast_void(n = ivalue(rb)), luaV_fastgeti(L, s2v(ra), n, slot))
-      : luaV_fastget(L, s2v(ra), rb, slot, luaH_get)) {
-    luaV_finishfastset(L, s2v(ra), slot, rc);
-  }
-  else
-    Protect(luaV_finishset(L, s2v(ra), rb, rc, slot));
-  vmbreak;
-}
-```
-Fast Path (مسیر سریع):
-اگه:
-
-جدول ساده باشه (نه متا‌تابع پیچیده داشته باشه)
-
-کلید هم معمولی باشه (مثلاً عدد یا رشته)
-
-اون وقت Lua می‌تونه خیلی سریع مقدار رو پیدا کنه یا بذاره، بدون اینکه بره سراغ متا‌تابع‌ها یا جست‌وجوی پیچیده.
-
-تابع‌هایی مثل luaV_fastgeti یا luaV_fastget دقیقاً برای این مسیر سریع طراحی شدن.
- Slow Path (مسیر کند یا امن):
-اگه:
-
-
-جدول یه متامتابع داشته باشه (مثلاً _index یا _newindex)
-
-نوع کلید یا جدول غیرمنتظره باشه
-
-اون موقع باید بره مسیر کامل و کند (مثلاً luaH_get, luaV_finishset) تا همه چیز درست و طبق استاندارد بررسی بشه.
 
 
 
