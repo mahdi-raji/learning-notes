@@ -1,14 +1,14 @@
 {
   "main": {
-    "id": "355dac06c9a7949d",
+    "id": "7f60907edaa0fd5b",
     "type": "split",
     "children": [
       {
-        "id": "a66e039a53fb151b",
+        "id": "e736db45ed2158df",
         "type": "tabs",
         "children": [
           {
-            "id": "6242b88da9d066c9",
+            "id": "7eee9966ea2bae10",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "793b243c3f95982d",
+    "id": "2ca88924d4d43792",
     "type": "split",
     "children": [
       {
-        "id": "e48ec93a838642f4",
+        "id": "f05ebae48d18d5fc",
         "type": "tabs",
         "children": [
           {
-            "id": "d7cf9cf5b208bbf2",
+            "id": "7a634244039eeffa",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +48,7 @@
             }
           },
           {
-            "id": "a04dc92ef031bee9",
+            "id": "6cfcac871e81fe55",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +65,7 @@
             }
           },
           {
-            "id": "dbc05ff7b9bd0991",
+            "id": "8065540156e8f6fb",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -81,20 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "9029b116016c659d",
+    "id": "46f97c4f137fcb6e",
     "type": "split",
     "children": [
       {
-        "id": "1bedd0769287e992",
+        "id": "4154c8b16c7e8071",
         "type": "tabs",
         "children": [
           {
-            "id": "4257c2becd5dc2c0",
+            "id": "7c6a3e0648566f8f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lua/love2d/Basics Of Love.md",
+                "file": "University/Operating Systems/01- Introduction to Operating Systems.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Basics Of Love"
+              "title": "Backlinks for 01- Introduction to Operating Systems"
             }
           },
           {
-            "id": "3de3cf58e2c71971",
+            "id": "55cc9e4c3f91e19c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "lua/love2d/Basics Of Love.md",
+                "file": "University/Operating Systems/01- Introduction to Operating Systems.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Basics Of Love"
+              "title": "Outgoing links from 01- Introduction to Operating Systems"
             }
           },
           {
-            "id": "7fce996ce277e3e9",
+            "id": "0a887e23fc748971",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,32 +137,21 @@
             }
           },
           {
-            "id": "cf248dabd269f9e6",
+            "id": "d19cd3b1822c89f7",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "lua/love2d/Basics Of Love.md",
+                "file": "University/Operating Systems/01- Introduction to Operating Systems.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Basics Of Love"
-            }
-          },
-          {
-            "id": "77b958967609f821",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "Outline of 01- Introduction to Operating Systems"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -171,61 +160,21 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "6242b88da9d066c9",
+  "active": "7eee9966ea2bae10",
   "lastOpenFiles": [
-    "University/Operating Systems/03- Basics of OS (Storage Structure).md",
     "lua/lua/Presentation.md",
-    "University/Operating Systems/04- Basics of OS (I O Structure).md",
-    "README.md",
-    "CSharp/Cshap In Depth/Part 2 - CSharp 2 - 5/1 - CSharp 2.md",
+    "University/Operating Systems/03- Basics of OS (Storage Structure).md",
     "University/Operating Systems/01- Introduction to Operating Systems.md",
     "University/Operating Systems/02- Basics of OS ( Computer System Operation ).md",
-    "University/Operating Systems/attachments/Pasted image 20250516002548.png",
-    "University/Operating Systems/attachments/Pasted image 20250516001925.png",
-    "University/Operating Systems/attachments/Pasted image 20250512230532.png",
-    "University/Operating Systems/attachments/Pasted image 20250512230942.png",
-    "University/Operating Systems/attachments/Pasted image 20250514170923.png",
-    "University/Operating Systems/attachments/Pasted image 20250514171646.png",
-    "University/Operating Systems/attachments/Pasted image 20250514174349.png",
-    "University/Operating Systems/attachments/Pasted image 20250514173403.png",
-    "University/Operating Systems/attachments/Pasted image 20250514173553.png",
-    "University/Operating Systems/attachments/Untitled.md",
-    "Untitled.md",
-    "Untitled 2.md",
-    "University/Operating Systems/03 -.md",
-    "University/Operating Systems/attachments/Pasted image 20250514170501.png",
-    "add",
-    "University/Operating Systems/attachments",
-    "University/Operating Systems/Introduction/1- What is an operating system.md",
-    "lua/lua/basics of LUA.md",
-    "CSharp/Cshap In Depth/Part 1 - CSharp In Context/1 - Survival of the sharpest.md",
-    "added",
-    "CSharp/Cshap In Depth/Part 2 - CSharp 2 - 5",
-    "CSharp/Cshap In Depth/Untitled.md",
-    "CSharp/Cshap In Depth/Part 1 - CSharp In Context",
-    "CSharp/Cshap In Depth.md",
-    "CSharp/Cshap In Depth",
-    "CSharp",
-    "lua/love2d/Save The Ball/1- Save The Ball - Game Setup.md",
-    "lua/love2d/0 - Basics Of Love.md",
-    "lua/love2d/Working With Sprites.md",
-    "Db/PostgreSql/PostgreSQL CRASH COURSE - Learn PostgreSQL in 2024.md",
-    "GFG/What is hashing.md",
-    "Db/PostgreSql",
-    "Db",
-    "GFG",
-    "lua/love2d/Save The Ball/5- Game over screen.md",
-    "lua/love2d/Hot Reloading for Love2D.md",
-    "lua/love2d/The Asteroids/Player.md",
-    "lua/love2d/The Asteroids/0- Game Setup.md"
+    "University/Operating Systems/04- Basics of OS (I O Structure).md"
   ]
 }

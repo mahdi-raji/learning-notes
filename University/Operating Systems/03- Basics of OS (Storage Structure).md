@@ -1,4 +1,4 @@
-![](attachments/Pasted%20image%2020250514174349.png)
+ ![](attachments/Pasted%20image%2020250514174349.png)
 ## Registers
 - The smallest and fastest storage units in a computer.
 - Store data in bits.
