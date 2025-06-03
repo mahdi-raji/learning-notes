@@ -19,6 +19,21 @@
 - Operating systems have a **device driver** for each device controller.  
   _Example_: Windows uses different drivers for an NVIDIA graphics card versus an AMD one.
 
+**What is a Buffer?** A  **buffer** is a small, temporary storage area used to hold data when transferring between two devices or components that work at different speeds.
+
+**Why is it used?** It prevents data loss when the sender is faster than the receiver.
+For example, a keyboard or mouse stores input events in its buffer while the CPU is busy.
+
+**When is data stored in the buffer?**
+When the device is sending data faster than the CPU can process.
+
+When the CPU or OS is temporarily unavailable.
+
+To group data and send it in chunks (batch processing).
+
+
+
+
 - **Device driver**:
   - Understands the device controller and presents a uniform interface to the device to the rest of the OS.  
     _Example_: Regardless of the brand of mouse (Logitech or HP), the OS uses the driver to interpret movements and clicks in the same way.
@@ -40,7 +55,7 @@
    When the transfer is finished, the device controller sends an **interrupt** to the CPU to notify the **device driver**.
 
 5. **OS Resumes Control**  
-   The device driver receives the signal and returns control to the **operating system**.
+   The device driver receives the signal and returns control to the **operating system**. 
 
 ---
 
@@ -72,9 +87,7 @@ To handle bulk data more efficiently, **Direct Memory Access (DMA)** is used.
 - Instead of constantly interrupting the CPU for every chunk, the **DMA controller** is set up.
 - It handles the bulk data transfer directly from the **device buffer** to **RAM**.
 - This **frees the CPU** to perform other tasks during the data movement.
-- **DMA does not wait to transfer the entire 1 MB at once**.
-    
-- Instead, it transfers **smaller chunks** (e.g., 4 KB or 8 KB) as soon as they're available in the **device’s buffer**.
+- **DMA does not wait to transfer the entire 1 MB at once**. Instead, it transfers **smaller chunks** (e.g., 4 KB or 8 KB) as soon as they're available in the **device’s buffer**.
     
 - The buffer holds the incoming data until DMA moves it to **RAM**.
     
