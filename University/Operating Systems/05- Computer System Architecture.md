@@ -1,4 +1,4 @@
-
+	
 # Categorization of Computer Systems Based on Number of General-Purpose Processors
 
 ## Single Processor
