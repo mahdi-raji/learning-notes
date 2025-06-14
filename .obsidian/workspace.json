@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "University/Operating Systems/11 - System Programs.md",
+                "file": "University/Operating Systems/12- Operating System Design & Implementation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "11 - System Programs"
+              "title": "12- Operating System Design & Implementation"
             }
           }
         ]
@@ -182,25 +182,26 @@
   },
   "active": "7eee9966ea2bae10",
   "lastOpenFiles": [
+    "University/Operating Systems/attachments/Pasted image 20250614110742.png",
+    "University/Operating Systems/attachments/Pasted image 20250614110719.png",
+    "University/Operating Systems/attachments/Pasted image 20250614110712.png",
+    "University/Operating Systems/10- Types of System Calls.md",
+    "University/Operating Systems/08- User Operating System Interface.md",
+    "University/Operating Systems/12- Operating System Design & Implementation.md",
+    "University/Operating Systems/attachments/Pasted image 20250614105347.png",
+    "University/Operating Systems/attachments/Pasted image 20250614105342.png",
+    "University/Operating Systems/11- System Programs.md",
+    "University/Operating Systems/09- System Calls.md",
+    "University/Operating Systems/07- Operating System Services.md",
+    "University/Operating Systems/06- Operating System Structure.md",
     "University/Operating Systems/attachments/Pasted image 20250611194614.png",
     "University/Operating Systems/attachments/Pasted image 20250611194540.png",
     "University/Operating Systems/attachments/Pasted image 20250611194229.png",
     "University/Operating Systems/attachments/Pasted image 20250611194227.png",
     "University/Operating Systems/attachments/Pasted image 20250611193921.png",
     "University/Operating Systems/attachments/Pasted image 20250611193807.png",
-    "University/Operating Systems/attachments/Pasted image 20250611193705.png",
-    "University/Operating Systems/attachments/Pasted image 20250611193557.png",
-    "University/Operating Systems/10 - Types of System Calls.md",
-    "University/Operating Systems/11 - System Programs.md",
-    "University/Operating Systems/attachments/Pasted image 20250611193536.png",
-    "University/Operating Systems/attachments/Pasted image 20250611193507.png",
-    "University/Operating Systems/attachments/Pasted image 20250611193438.png",
-    "University/Operating Systems/08 - User Operating System Interface.md",
-    "University/Operating Systems/09 - System Calls.md",
     "README.md",
     "University/Operating Systems/Untitled 1.md",
-    "University/Operating Systems/07 - Operating System Services.md",
-    "University/Operating Systems/06 - Operating System Structure.md",
     "University/Operating Systems/02- Basics of OS ( Computer System Operation ).md",
     "University/Operating Systems/05- Computer System Architecture.md",
     "University/Operating Systems/04- Basics of OS (I O Structure).md",

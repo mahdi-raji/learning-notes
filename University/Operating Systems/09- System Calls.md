@@ -1,5 +1,4 @@
 
-
 ## Two Modes of Execution
 
 Programs in a modern operating system can run in **two modes**:
