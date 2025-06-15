@@ -163,6 +163,14 @@ public class MyClass
     }
 }
 ```
+
+```C#
+var obj1 = MyClass.Create(123);            // T inferred as int
+var obj2 = MyClass.Create("Hello");        // T inferred as string
+var obj3 = MyClass.Create(DateTime.Now);   // T inferred as DateTime
+
+```
 - Instead of a generic constructor, define a generic static method.
 - The generic method `Create<T>` can accept any type parameter.
 - This approach works around the limitation and allows generic behavior.
+- This allows you to **omit the explicit type** and still call the method correctly.
