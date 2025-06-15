@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "University/Operating Systems/2- Processes/17- Process State.md",
+                "file": "University/Operating Systems/2- Processes/19- Process Scheduling.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "17- Process State"
+              "title": "19- Process Scheduling"
             }
           }
         ]
@@ -182,9 +182,19 @@
   },
   "active": "7eee9966ea2bae10",
   "lastOpenFiles": [
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615223530.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615223437.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615223309.png",
+    "University/Operating Systems/2- Processes/20- Context Switch.md",
+    "University/Operating Systems/2- Processes/19- Process Scheduling.md",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615223214.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615223202.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615222517.png",
+    "University/Operating Systems/2- Processes/18- Process Control Block.md",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250615211320.png",
+    "University/Operating Systems/2- Processes/17- Process State.md",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250615195340.png",
     "University/Operating Systems/2- Processes/16- Process Management (Processes and Threads).md",
-    "University/Operating Systems/2- Processes/17- Process State.md",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250615194252.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250615194103.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250615193902.png",
@@ -192,13 +202,6 @@
     "University/Operating Systems/1- OS Structures/00 - Lecture Slides Notes.md",
     "University/Operating Systems/2- Processes",
     "University/Operating Systems/1- OS Structures/02- Basics of OS ( Computer System Operation ).md",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174952.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174651.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174607.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174543.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174517.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174459.png",
-    "University/Operating Systems/1- OS Structures/attachments/Pasted image 20250614174452.png",
     "University/Operating Systems/1- OS Structures/09- System Calls.md",
     "University/Operating Systems/1- OS Structures/03- Basics of OS (Storage Structure).md",
     "University/Operating Systems/1- OS Structures/04- Basics of OS (I O Structure).md",
