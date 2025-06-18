@@ -1,6 +1,6 @@
 ![](attachments/Pasted%20image%2020250619001329.png)
 
-## Naming:
+## Direct Or Indirect Communication (Naming Issue):
 ### Direct Communication
 ![](attachments/Pasted%20image%2020250619001629.png)
 P => Receiver
