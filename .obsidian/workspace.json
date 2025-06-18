@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "University/Operating Systems/2- Processes/26- (Part 2) Message Passing Systems.md",
+                "file": "University/Operating Systems/2- Processes/27- (Part 3) Message Passing Systems.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "26- (Part 2) Message Passing Systems"
+              "title": "27- (Part 3) Message Passing Systems"
             }
           }
         ]
@@ -182,24 +182,25 @@
   },
   "active": "7eee9966ea2bae10",
   "lastOpenFiles": [
-    "University/Operating Systems/2- Processes/25- (Part 1) Message Passing Systems.md",
-    "University/Operating Systems/2- Processes/24- Shared Memory Systems.md",
     "University/Operating Systems/2- Processes/26- (Part 2) Message Passing Systems.md",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619000152.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618235942.png",
+    "University/Operating Systems/2- Processes/27- (Part 3) Message Passing Systems.md",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619004314.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619003156.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002901.png",
+    "University/Operating Systems/2- Processes/25- (Part 1) Message Passing Systems.md",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002824.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002419.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002144.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619001649.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619001836.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619001629.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619001329.png",
+    "University/Operating Systems/2- Processes/24- Shared Memory Systems.md",
     "University/Operating Systems/2- Processes/22- Operation on Processes - Process Termination.md",
     "University/Operating Systems/2- Processes/21- Operation on Processes – Process Creation.md",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618235241.png",
     "University/Operating Systems/2- Processes/16- Process Management (Processes and Threads).md",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618234233.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618234005.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618233206.png",
     "University/Operating Systems/2- Processes/23- Interprocess Communication.md",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618231613.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618231530.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618230724.png",
     "University/Operating Systems/2- Processes/17- Process State.md",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250618225857.png",
     "University/Operating Systems/2- Processes/18- Process Control Block.md",
     "University/Operating Systems/2- Processes/19- Process Scheduling.md",
     "University/Operating Systems/2- Processes/20- Context Switch.md",
