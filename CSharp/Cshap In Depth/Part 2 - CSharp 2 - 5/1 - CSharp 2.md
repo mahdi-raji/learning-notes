@@ -174,3 +174,15 @@ var obj3 = MyClass.Create(DateTime.Now);   // T inferred as DateTime
 - The generic method `Create<T>` can accept any type parameter.
 - This approach works around the limitation and allows generic behavior.
 - This allows you to **omit the explicit type** and still call the method correctly.
+
+## Type Constraint
+- `where T : IFormattable` ensures that `T` has a `ToString(string, IFormatProvider)` method.
+    
+- Without it, the compiler only sees `object.ToString()`, which doesn’t accept formatting arguments.
+    
+- C# supports several constraints: `class`, `struct`, `new()`, interfaces, base classes, or even other type parameters.
+    
+- Combining constraints allows powerful generic APIs (e.g., only allow types that are comparable _and_ have a parameterless constructor).
+    
+
+This is essential when your generic code needs to rely on specific behaviors from the type argument.
