@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "e736db45ed2158df",
+        "id": "606081f564843567",
         "type": "tabs",
         "children": [
           {
-            "id": "7eee9966ea2bae10",
+            "id": "fbc74edd891ef07b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 364.0004348754883
+    "width": 422
   },
   "right": {
     "id": "46f97c4f137fcb6e",
@@ -157,8 +157,8 @@
             "state": {
               "type": "git-view",
               "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "icon": "lucide-file",
+              "title": "Plugin no longer active"
             }
           }
         ],
@@ -180,46 +180,45 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7eee9966ea2bae10",
+  "active": "fbc74edd891ef07b",
   "lastOpenFiles": [
     "University/Operating Systems/2- Processes/28- Sockets in Operating System.md",
+    "University/Operating Systems/2- Processes/27- (Part 3) Message Passing Systems.md",
+    "University/Operating Systems/2- Processes/26- (Part 2) Message Passing Systems.md",
+    "University/Operating Systems/2- Processes/25- (Part 1) Message Passing Systems.md",
+    "University/Operating Systems/2- Processes/24- Shared Memory Systems.md",
+    "University/Operating Systems/2- Processes/17- Process State.md",
+    "University/Operating Systems/2- Processes/21- Operation on Processes – Process Creation.md",
+    "University/Operating Systems/2- Processes/23- Interprocess Communication.md",
+    "University/Operating Systems/2- Processes/22- Operation on Processes - Process Termination.md",
     "University/Operating Systems/2- Processes/29- Remote Procedure Calls (RPC).md",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619183218.png",
+    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619182742.png",
+    "University/Operating Systems/1- OS Structures/06- Operating System Structure.md",
+    "University/Operating Systems/1- OS Structures/05- Computer System Architecture.md",
+    "University/Operating Systems/1- OS Structures/04- Basics of OS (I O Structure).md",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619181504.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619181152.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619180647.png",
-    "University/Operating Systems/2- Processes/27- (Part 3) Message Passing Systems.md",
-    "University/Operating Systems/2- Processes/24- Shared Memory Systems.md",
-    "University/Operating Systems/2- Processes/21- Operation on Processes – Process Creation.md",
     "University/Operating Systems/2- Processes/20- Context Switch.md",
     "University/Operating Systems/2- Processes/19- Process Scheduling.md",
     "University/Operating Systems/2- Processes/18- Process Control Block.md",
     "University/Operating Systems/2- Processes/16- Process Management (Processes and Threads).md",
-    "University/Operating Systems/1- OS Structures/06- Operating System Structure.md",
-    "University/Operating Systems/1- OS Structures/05- Computer System Architecture.md",
-    "University/Operating Systems/2- Processes/17- Process State.md",
-    "University/Operating Systems/2- Processes/23- Interprocess Communication.md",
-    "University/Operating Systems/2- Processes/26- (Part 2) Message Passing Systems.md",
     "University/Operating Systems/1- OS Structures/00 - Lecture Slides Notes.md",
-    "University/Operating Systems/2- Processes/25- (Part 1) Message Passing Systems.md",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619010622.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619010028.png",
     "README.md",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619004314.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619003156.png",
     "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002901.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002824.png",
-    "University/Operating Systems/2- Processes/attachments/Pasted image 20250619002419.png",
-    "University/Operating Systems/2- Processes/22- Operation on Processes - Process Termination.md",
     "CSharp/Cshap In Depth/Part 2 - CSharp 2 - 5/1 - CSharp 2.md",
     "University/Operating Systems/2- Processes/attachments",
     "University/Operating Systems/2- Processes",
     "University/Operating Systems/1- OS Structures/02- Basics of OS ( Computer System Operation ).md",
     "University/Operating Systems/1- OS Structures/09- System Calls.md",
     "University/Operating Systems/1- OS Structures/03- Basics of OS (Storage Structure).md",
-    "University/Operating Systems/1- OS Structures/04- Basics of OS (I O Structure).md",
     "University/Operating Systems/1- OS Structures/07- Operating System Services.md",
     "University/Operating Systems/1- OS Structures/14- Virtual Machines.md",
-    "University/Operating Systems/1- OS Structures/15 - Operating System Generation and System Boot.md",
     "University/Operating Systems/1- OS STRUCTURE/Untitled",
     "University/Operating Systems/1- OS Structures",
     "lua/lua.rar"
