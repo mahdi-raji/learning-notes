@@ -135,12 +135,28 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
+          },
+          {
+            "id": "969ceda0445ce1d2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "University/Operating Systems/2- Processes/29- Remote Procedure Calls (RPC).md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 29- Remote Procedure Calls (RPC)"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -154,6 +170,7 @@
   },
   "active": "7eee9966ea2bae10",
   "lastOpenFiles": [
+    "New folder",
     "University/Operating Systems/2- Processes/27- (Part 3) Message Passing Systems.md",
     "University/Operating Systems/2- Processes/28- Sockets in Operating System.md",
     "University/Operating Systems/2- Processes/30- Issues in RPC & How They're Resolved.md",
@@ -192,7 +209,6 @@
     "University/Operating Systems/2- Processes/attachments",
     "University/Operating Systems/2- Processes",
     "University/Operating Systems/1- OS Structures/02- Basics of OS ( Computer System Operation ).md",
-    "University/Operating Systems/1- OS Structures/09- System Calls.md",
     "University/Operating Systems/1- OS STRUCTURE/Untitled",
     "University/Operating Systems/1- OS Structures",
     "lua/lua.rar"
