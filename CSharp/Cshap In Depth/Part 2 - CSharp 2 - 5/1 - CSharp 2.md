@@ -92,7 +92,7 @@ public static class Tuple {
 - You can overload generic methods by number of type parameters 
 - Type parameters in the same declaration must have unique names
 - It's fine to use the same type as both generic arguments 
-### What Can Be Generic in C#
+### What Can Be Generic in CSharp #
 
 - **Types that can be generic:**
   - Classes
@@ -182,7 +182,18 @@ var obj3 = MyClass.Create(DateTime.Now);   // T inferred as DateTime
     
 - C# supports several constraints: `class`, `struct`, `new()`, interfaces, base classes, or even other type parameters.
     
-- Combining constraints allows powerful generic APIs (e.g., only allow types that are comparable _and_ have a parameterless constructor).
+- Combining constraints allows powerful generic APIs (e.g., only allow types that are comparable and have a parameterless constructor).
     
 
-This is essential when your generic code needs to rely on specific behaviors from the type argument.
+- `: new()` type constraint specifies that a type argument in a generic class or method declaration must have a public parameterless constructor
+	usage:
+	```C#
+	public class GenericRepository<T> where T : class, new()
+	{
+	    public T CreateEmpty()
+	    {
+        return new T();
+	    }
+	}
+	```
+	This is essential when your generic code needs to rely on specific behaviors from the type argument.
