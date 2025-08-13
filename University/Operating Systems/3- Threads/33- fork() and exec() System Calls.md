@@ -10,7 +10,7 @@
 1. First `fork()` → only 1 parent exists, creates 1 child → total **2 processes**.
 2. Second `fork()` → each of the 2 processes creates 1 child → total **4 processes**.
 3. Third `fork()` → each of the 4 processes creates 1 child → total **8 processes**.
-
+![Example 2](attachments/Pasted%20image%2020250812212655.png)
 **Formula for total processes after N forks:**  
 ```
 Total = 2^N processes
@@ -18,7 +18,7 @@ Newly created processes = 2^N - 1
 ```
 
 ![Example 1](attachments/Pasted%20image%2020250812212521.png)  
-![Example 2](attachments/Pasted%20image%2020250812212655.png)
+
 
 ---
 
