@@ -1,6 +1,6 @@
 # 🧠 Learning Notes
 
-This repository contains personal learning notes, diagrams, and summaries on various technical topics I explore during my development journey. The notes are primarily structured and maintained using [Obsidian](https://obsidian.md/) in mark down format . 
+This repository contains personal learning notes, diagrams, and summaries on various technical topics I explore during my development journey. The notes are primarily structured and maintained using [Obsidian](https://obsidian.md/) in markdown format.
 
 ## 📂 Structure
 
@@ -27,6 +27,9 @@ The vault is organized into the following types of content:
 1. Launch **Obsidian**.
 2. Select **“Open Folder as Vault”** and choose the cloned folder.
 
+> **Tip:** All my themes and plugins are inside the `.My.ObsidianFile` folder.  
+> If you replace Obsidian’s default `.obsidian` folder with `.My.ObsidianFile`, you will have all my themes and plugins configured exactly as in my setup.
+
 ## 🧭 Goals
 
 This vault serves multiple purposes:
@@ -41,5 +44,3 @@ All content is released under the [MIT License](./LICENSE).
 You're welcome to read, reuse, and remix the material with attribution.
 
 > **Note:** These notes are a work in progress and constantly evolving.
-  
-   
